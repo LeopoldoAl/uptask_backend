@@ -1,7 +1,7 @@
 import mongoose, { Document, Schema } from "mongoose"
 
 export type ProjectType = Document & {
-    projectNmae: string
+    projectName: string
     clientName: string
     description: string
 }
@@ -9,17 +9,17 @@ export type ProjectType = Document & {
 const ProjectSchema :  Schema = new Schema({
     projectName: {
         type: String,
-        requiree: true,
+        required: true,
         trim: true
     },
     clientName: {
         type: String,
-        requiree: true,
+        required: true,
         trim: true
     },
     description: {
         type: String,
-        requiree: true,
+        required: true,
         trim: true
     },
 })
