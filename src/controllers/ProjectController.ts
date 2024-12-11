@@ -1,5 +1,6 @@
 import { Request, Response } from "express"
 import Project from "../models/Project"
+import { populate } from "dotenv"
 export class ProjectController {
     static createProject = async (req: Request, res: Response) => {
         const project = new Project(req.body)
@@ -51,6 +52,23 @@ export class ProjectController {
             }
             await project.save()
             res.send('Project has been updated correctly!')
+        } catch (error) {
+            console.log(error)
+        }
+    }
+    static deleteProject = async (req: Request, res: Response) => {
+        const { id } = req.params
+        try {
+            const project = await Project.findById(id)
+            if (!project) {
+                const error = new Error("Project did not find!")
+                res.status(404).json({
+                    error: error.message
+                })
+                return
+            }
+            await project.deleteOne()
+            res.send('Project has been deleted correctly!')
         } catch (error) {
             console.log(error)
         }
