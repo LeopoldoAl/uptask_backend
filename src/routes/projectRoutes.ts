@@ -5,7 +5,7 @@ import { handleInputErrors } from "../middleware/validation"
 
 const router = Router()
 
-router.post('/', 
+router.post('/',
     body("projectName")
         .notEmpty().withMessage("The project name is obligatory!"),
     body("clientName")
@@ -18,10 +18,22 @@ router.post('/',
 )
 router.get('/', ProjectController.getAllProjects)
 
-router.get('/:id', 
+router.get('/:id',
     param('id').isMongoId().withMessage("Id does not valid!"),
     handleInputErrors,
     ProjectController.getProjectById
+)
+
+router.put('/:id',
+    param('id').isMongoId().withMessage("Id does not valid!"),
+    body("projectName")
+        .notEmpty().withMessage("The project name is obligatory!"),
+    body("clientName")
+        .notEmpty().withMessage("The client name is obligatory!"),
+    body("description")
+        .notEmpty().withMessage("The description is obligatory!"),
+    handleInputErrors,
+    ProjectController.updateProduct
 )
 
 export default router
