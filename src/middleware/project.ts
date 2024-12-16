@@ -9,7 +9,7 @@ declare global {
     }
 }
 
-export async function validateProjecExists(req: Request, res: Response, next: NextFunction) {
+export async function projecExists(req: Request, res: Response, next: NextFunction) {
     try {
         const { projectId } = req.params
         const project = await Project.findById(projectId)
