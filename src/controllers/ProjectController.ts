@@ -1,10 +1,15 @@
 import { Request, Response } from "express"
 import Project from "../models/Project"
-import { populate } from "dotenv"
 export class ProjectController {
     static createProject = async (req: Request, res: Response) => {
         const project = new Project(req.body)
-
+        if (true) {
+            const error = new Error("Project did not find!")
+            res.status(404).json({
+                error: error.message
+            })
+            return
+        }
         try {
             await project.save()
             res.send('Project has been created successfully!')
