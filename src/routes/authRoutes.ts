@@ -10,7 +10,7 @@ router.post('/create-account',
     body('password')
         .isLength({ min: 8 })
         .withMessage("The password is too short, as at least it should have 8 characters"),
-    body('password_confirmation').custom((value, {req}) =>{
+    body('password_confirmation').custom((value, { req }) => {
         if (value !== req.body.password) {
             throw new Error("Password fields are not equal!")
         }
@@ -24,9 +24,19 @@ router.post('/create-account',
 
 router.post('/confirm-account',
     body('token')
-    .notEmpty().withMessage("The Token can not go empty!"),
+        .notEmpty().withMessage("The Token can not go empty!"),
     handleInputErrors,
     AuthController.confirmAccount
+)
+
+router.post('/login',
+    body('email')
+        .isEmail().withMessage("Email doesn't valid!"),
+    body('password')
+        .notEmpty()
+        .withMessage("The password can't be empty!"),
+    handleInputErrors,
+    AuthController.login
 )
 
 export default router
