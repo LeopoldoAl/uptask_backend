@@ -44,6 +44,12 @@ import { AuthEmail } from "../emails/AuthEmail"
                     res.status(401).json({error: error.message})
                     return
                 }
+
+                const user = await User.findById(tokenExists.user)
+                user.confirmed = true
+
+                await Promise.allSettled([user.save(), tokenExists.deleteOne()])
+                res.send('Account confirmed correctly!')
             } catch (error) {
                 res.status(500).json({error: 'There was an error!'})
             }
