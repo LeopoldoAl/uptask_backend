@@ -54,4 +54,18 @@ import { AuthEmail } from "../emails/AuthEmail"
                 res.status(500).json({error: 'There was an error!'})
             }
         }
+
+        static login = async (req: Request, res: Response) => {
+            try {
+                const { email, password } = req.body
+                const user = await User.findOne({email})
+                if (!user) {
+                    const error = new Error("User didn't find!")
+                    res.status(401).json({error: error.message})
+                    return
+                }
+            } catch (error) {
+                res.status(500).json({error: 'There was an error!'})
+            }
+        }
     }
