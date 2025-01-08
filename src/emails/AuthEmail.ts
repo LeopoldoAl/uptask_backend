@@ -1,4 +1,6 @@
 import { transport } from "../config/nodemailer"
+import dotenv from 'dotenv'
+dotenv.config()
 interface IEmail {
     email: string,
     name: string,
@@ -7,7 +9,7 @@ interface IEmail {
 export class AuthEmail {
     static sendConfirmationEmail = async (user: IEmail) => {
         const info = await transport.sendMail({
-            from: 'UpTask <admin@uptask.com>',
+            from: `UpTask <${process.env.EMAIL_ADMIN}>`,
             to: user.email,
             subject: 'UpTask - Confirm your account',
             text: 'UpTask - Confirm your account',
