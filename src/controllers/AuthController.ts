@@ -1,6 +1,6 @@
 import { Request, Response } from "express"
 import User from "../models/User"
-import { hashPassword } from "../utils/auth"
+import { checkPassword, hashPassword } from "../utils/auth"
 import Token from "../models/Token"
 import { generateToken } from "../utils/token"
 import { AuthEmail } from "../emails/AuthEmail"
@@ -30,7 +30,7 @@ export class AuthController {
                 token: token.token
             })
             await Promise.allSettled([user.save(), token.save()])
-            res.send('Account has been created, review your email to confirm!')
+            res.send('Account has been created, review your email to confirm it!')
         } catch (error) {
             res.status(500).json({ error: 'There was an error!' })
         }
@@ -80,6 +80,14 @@ export class AuthController {
                 res.status(401).json({ error: error.message })
                 return
             }
+            // Checking passsword
+            const isPasswordCorrect = await checkPassword(password, user.password)
+            if (!isPasswordCorrect) {
+                const error = new Error("Password hasn't been correct!")
+                res.status(401).json({ error: error.message })
+                return
+            }
+            res.send("Authenticated...")
         } catch (error) {
             res.status(500).json({ error: 'There was an error!' })
         }
