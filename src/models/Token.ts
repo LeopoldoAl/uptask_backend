@@ -18,7 +18,7 @@ const tokenSchema: Schema = new Schema({
     createdAt: {
         type: Date,
         default: Date.now(),
-        expires: "10m"
+        expires: "600" // Expring in 10 minutes
     }
 })
 const Token = mongoose.model<IToken>('Token', tokenSchema)  

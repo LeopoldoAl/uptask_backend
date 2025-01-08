@@ -40,7 +40,7 @@ export class AuthController {
             const { token } = req.body
             const tokenExists = await Token.findOne({ token })
             if (!tokenExists) {
-                const error = new Error("Token does no valid!")
+                const error = new Error("Token does not valid!")
                 res.status(404).json({ error: error.message })
                 return
             }
