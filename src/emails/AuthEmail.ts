@@ -22,4 +22,19 @@ export class AuthEmail {
         })
         console.log('Message sent',info.messageId)
     }
+    static sendPasswordResetToken = async (user: IEmail) => {
+        const info = await transport.sendMail({
+            from: `UpTask <${process.env.EMAIL_ADMIN}>`,
+            to: user.email,
+            subject: 'UpTask - Restore your password',
+            text: 'UpTask - Restore your password',
+            html: `<p>Hello ${user.name}, has requested to restore your password.</p>
+            <p>Visit the following link</p>
+            <a href="${process.env.FRONTEND_URL}/auth/new-password">Restore Password</a>
+            <p>Ingress the code: <b>${user.token}</b></p>
+            <p>This token will expire in 10 minutes</p>
+            `
+        })
+        console.log('Message sent',info.messageId)
+    }
 }
