@@ -50,5 +50,11 @@ router.post('/forgot-password',
     handleInputErrors,
     AuthController.forgotPassword
 )
+router.post('/validate-token',
+    body('token')
+        .notEmpty().withMessage("The Token can not go empty!"),
+    handleInputErrors,
+    AuthController.validateToken
+)
 
 export default router
