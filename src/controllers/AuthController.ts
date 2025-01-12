@@ -134,7 +134,7 @@ export class AuthController {
                 res.status(404).json({ error: error.message })
                 return
             }
-            
+
             // Generating Token
             const token = new Token()
             token.token = generateToken()
@@ -147,6 +147,20 @@ export class AuthController {
                 token: token.token
             })
             res.send('Review your email to receive the instructions')
+        } catch (error) {
+            res.status(500).json({ error: 'There was an error!' })
+        }
+    }
+    static validateToken = async (req: Request, res: Response) => {
+        try {
+            const { token } = req.body
+            const tokenExists = await Token.findOne({ token })
+            if (!tokenExists) {
+                const error = new Error("Token does not valid!")
+                res.status(404).json({ error: error.message })
+                return
+            }
+            res.send('Token is valid, define your new password')
         } catch (error) {
             res.status(500).json({ error: 'There was an error!' })
         }
