@@ -15,10 +15,10 @@ const tokenSchema: Schema = new Schema({
         type: Types.ObjectId,
         ref: 'User'
     },
-    createdAt: {
+    expiresAt: {
         type: Date,
         default: Date.now(),
-        expires: "600" // Expring in 10 minutes
+        expires: "10m"
     }
 })
 const Token = mongoose.model<IToken>('Token', tokenSchema)  
