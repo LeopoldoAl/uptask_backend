@@ -3,6 +3,8 @@ import Project from "../models/Project"
 export class ProjectController {
     static createProject = async (req: Request, res: Response) => {
         const project = new Project(req.body)
+        // We assing a manager to the project
+        project.manager = req.user.id
         console.log(req.user)
         try {
             await project.save()
