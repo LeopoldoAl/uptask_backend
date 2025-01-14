@@ -61,6 +61,13 @@ export class ProjectController {
                 })
                 return
             }
+            if (project.manager.toString() !== req.user.id.toString()) {
+                const error = new Error("The manager only can update a project!")
+                res.status(404).json({
+                    error: error.message
+                })
+                return
+            }
             project.clientName = req.body.clientName
             project.projectName = req.body.projectName
             project.description = req.body.description
@@ -76,6 +83,13 @@ export class ProjectController {
             const project = await Project.findById(id)
             if (!project) {
                 const error = new Error("Project did not find!")
+                res.status(404).json({
+                    error: error.message
+                })
+                return
+            }
+            if (project.manager.toString() !== req.user.id.toString()) {
+                const error = new Error("The manager only can delete a project!")
                 res.status(404).json({
                     error: error.message
                 })
