@@ -13,7 +13,7 @@ export const authenticate = async (req:Request, res: Response, next: NextFunctio
     const bearer = req.headers.authorization
     if(!bearer) {
         const error = new Error("Not authorized")
-        res.status(404).json({error: error.message})
+        res.status(401).json({error: error.message})
         return
     }
     const [,token] = bearer.split(' ')
