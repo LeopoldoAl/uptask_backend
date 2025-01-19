@@ -59,6 +59,11 @@ export class TaskController {
         try {
             const {status} = req.body
             req.task.status = status
+            if (status==='pending') {
+                req.task.completeBy = null
+            } else {
+                req.task.completeBy = req.user.id
+            }
             await req.task.save()
             res.send("Task has been updated correctly!")
         } catch (error) {
