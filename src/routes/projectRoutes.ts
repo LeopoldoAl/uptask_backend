@@ -7,6 +7,7 @@ import { projecExists } from "../middleware/project"
 import { hasAuthorization, taskBelongsToProject, taskExists } from "../middleware/task"
 import { authenticate } from "../middleware/auth"
 import { TeamMemberContoller } from "../controllers/TeamController"
+import { NoteController } from "../controllers/NoteController"
 
 const router = Router()
 
@@ -118,5 +119,12 @@ router.delete('/:projectId/team/:userId',
         .isMongoId().withMessage("ID doesn't valid!"),
         handleInputErrors,
         TeamMemberContoller.removeMemberById
+)
+/** Routes for Notes */
+router.post('/:projectId/tasks/:taskId/notes',
+    body('content')
+        .notEmpty().withMessage('The note content is obligatory!'),
+    handleInputErrors,
+    NoteController.createNote
 )
 export default router
