@@ -16,7 +16,7 @@ export class TaskController {
     }
     static getProjectTasks = async (req: Request, res: Response) => {
         try {
-            const tasks = await Task.find({project: req.project.id}).populate('project')
+            const tasks = await Task.find({ project: req.project.id }).populate('project')
             res.json(tasks)
         } catch (error) {
             res.status(500).json({ error: 'There was an error!' })
@@ -24,10 +24,12 @@ export class TaskController {
         }
     }
 
-        
+
     static getTaskById = async (req: Request, res: Response) => {
         try {
-           res.json(req.task)
+            const task = await (await Task.findById(req.task.id))
+                                    .populate({path:"completeBy", select: 'id name email'})
+            res.json(task)
         } catch (error) {
             res.status(500).json({ error: 'There was an error!' })
 
@@ -46,9 +48,9 @@ export class TaskController {
     }
     static deleteTask = async (req: Request, res: Response) => {
         try {
-            req.project.tasks = req.project.tasks.filter( task => task.toString() !== req.task.id.toString())
+            req.project.tasks = req.project.tasks.filter(task => task.toString() !== req.task.id.toString())
             await Promise.allSettled([req.task.deleteOne(), req.project.save()])
-            
+
             res.send("Task has been deleted correctly!")
         } catch (error) {
             res.status(500).json({ error: 'There was an error!' })
@@ -57,9 +59,9 @@ export class TaskController {
     }
     static updateStatus = async (req: Request, res: Response) => {
         try {
-            const {status} = req.body
+            const { status } = req.body
             req.task.status = status
-            if (status==='pending') {
+            if (status === 'pending') {
                 req.task.completeBy = null
             } else {
                 req.task.completeBy = req.user.id
