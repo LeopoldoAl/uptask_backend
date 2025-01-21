@@ -16,4 +16,12 @@ export class NoteController {
             res.status(500).json({error: 'There was an error!'})
         }
     }
+    static getTaskNotes =  async (req: Request, res: Response) => {
+        try {
+            const notes = await Note.find({task: req.task.id})
+            res.json(notes)
+        } catch (error) {
+            res.status(500).json({error: 'There was an error!'})
+        }
+    }
 }
