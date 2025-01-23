@@ -87,4 +87,20 @@ router.put('/profile',
     handleInputErrors,
     AuthController.updateProfile
 )
+router.post('/update-password',
+    authenticate,
+    body('current_password')
+        .notEmpty().withMessage("The current password can not go empty!"),
+    body('password')
+        .isLength({ min: 8 })
+        .withMessage("The password is too short, as at least it should have 8 characters"),
+    body('password_confirmation').custom((value, { req }) => {
+        if (value !== req.body.password) {
+            throw new Error("Password fields are not equal!")
+        }
+        return true
+    }),
+    handleInputErrors,
+    AuthController.updateCurrentUserPassword
+)
 export default router
