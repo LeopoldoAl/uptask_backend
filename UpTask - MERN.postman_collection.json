@@ -1,0 +1,901 @@
+{
+	"info": {
+		"_postman_id": "14608f50-0d83-4128-b420-4970783ed308",
+		"name": "UpTask - MERN",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "39690147"
+	},
+	"item": [
+		{
+			"name": "Project",
+			"item": [
+				{
+					"name": "Create Project",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3ODY3YjdlMmJjOWJhMzgxZGFlNDI1ZSIsImlhdCI6MTczNjg2NjkxMCwiZXhwIjoxNzUyNDE4OTEwfQ.OMiIm5Wyj2nmxYjxAK9baERMct8eri3IqHytZVJkPdE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"projectName\": \"Coding Juan 2!!!\",\r\n    \"clientName\": \"customer\",\r\n    \"description\": \"Project customizable all the time and it should be like this\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http:///localhost:3000/api/projects",
+							"protocol": "http",
+							"path": [
+								"localhost:3000",
+								"api",
+								"projects"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Project",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http:///localhost:3000/api/projects",
+							"protocol": "http",
+							"path": [
+								"localhost:3000",
+								"api",
+								"projects"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Project By Id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http:///localhost:3000/api/projects/6786744e6928b223206605c7",
+							"protocol": "http",
+							"path": [
+								"localhost:3000",
+								"api",
+								"projects",
+								"6786744e6928b223206605c7"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Project",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3ODY3YjdlMmJjOWJhMzgxZGFlNDI1ZSIsImlhdCI6MTczNjg3MDczOSwiZXhwIjoxNzUyNDIyNzM5fQ.K51zkb95K4e38_iinEyOYIa7Z87Q7d7YTPAYgvnh_X0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"projectName\": \"Ecommerce updated\",\r\n    \"clientName\": \"Google new\",\r\n    \"description\": \"An updated description\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http:///localhost:3000/api/projects/6786744e6928b223206605c7",
+							"protocol": "http",
+							"path": [
+								"localhost:3000",
+								"api",
+								"projects",
+								"6786744e6928b223206605c7"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Project",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3ODY3YjdlMmJjOWJhMzgxZGFlNDI1ZSIsImlhdCI6MTczNjg3MDczOSwiZXhwIjoxNzUyNDIyNzM5fQ.K51zkb95K4e38_iinEyOYIa7Z87Q7d7YTPAYgvnh_X0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/projects/6786744e6928b223206605c7",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"projects",
+								"6786744e6928b223206605c7"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Task",
+			"item": [
+				{
+					"name": "Create Task",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Woring in progress\",\r\n    \"description\": \"Finding the best framework for this project\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http:///localhost:3000/api/projects/67603913a4637779d4e80e12/tasks",
+							"protocol": "http",
+							"path": [
+								"localhost:3000",
+								"api",
+								"projects",
+								"67603913a4637779d4e80e12",
+								"tasks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Tasks",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http:///localhost:3000/api/projects/675af7beff87034a48c0435b/tasks",
+							"protocol": "http",
+							"path": [
+								"localhost:3000",
+								"api",
+								"projects",
+								"675af7beff87034a48c0435b",
+								"tasks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Task By Id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3ODY3YjdlMmJjOWJhMzgxZGFlNDI1ZSIsImlhdCI6MTczNzQ3MDk2NSwiZXhwIjoxNzUzMDIyOTY1fQ.dKnO7sOKzdcV3noqkmEIMG9CRHLaXk4Lmvq7Vdb5vjE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/projects/678a6c4793fa83e5ad05d845/tasks/678e577b9a61c727274b27a9",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"projects",
+								"678a6c4793fa83e5ad05d845",
+								"tasks",
+								"678e577b9a61c727274b27a9"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Task By Id",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Task updated\",\r\n    \"description\": \"Description updated!\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/projects/676030ff185ebb28a6b2ede5/tasks/67603122185ebb28a6b2ede9",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"projects",
+								"676030ff185ebb28a6b2ede5",
+								"tasks",
+								"67603122185ebb28a6b2ede9"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Task By Id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/projects/67603913a4637779d4e80e12/tasks/67603b62a4637779d4e80e25",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"projects",
+								"67603913a4637779d4e80e12",
+								"tasks",
+								"67603b62a4637779d4e80e25"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Status",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"status\": \"completed\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/projects/676030ff185ebb28a6b2ede5/tasks/67603122185ebb28a6b2ede9/status",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"projects",
+								"676030ff185ebb28a6b2ede5",
+								"tasks",
+								"67603122185ebb28a6b2ede9",
+								"status"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Create Account",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Jose\",\r\n    \"password\": \"password\",\r\n    \"password_confirmation\": \"password\",\r\n    \"email\": \"email2@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http:///localhost:3000/api/auth/create-account",
+							"protocol": "http",
+							"path": [
+								"localhost:3000",
+								"api",
+								"auth",
+								"create-account"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Confirm-Account",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"token\": \"306439\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http:///localhost:3000/api/auth/confirm-account",
+							"protocol": "http",
+							"path": [
+								"localhost:3000",
+								"api",
+								"auth",
+								"confirm-account"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"email@gmail.com\",\r\n    \"password\": \"password\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http:///localhost:3000/api/auth/login",
+							"protocol": "http",
+							"path": [
+								"localhost:3000",
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Request New Confirmation Code",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"email2@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http:///localhost:3000/api/auth/request-code",
+							"protocol": "http",
+							"path": [
+								"localhost:3000",
+								"api",
+								"auth",
+								"request-code"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Forgot Password",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"email2@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http:///localhost:3000/api/auth/forgot-password",
+							"protocol": "http",
+							"path": [
+								"localhost:3000",
+								"api",
+								"auth",
+								"forgot-password"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Validate Token",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"token\": \"597221\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http:///localhost:3000/api/auth/validate-token",
+							"protocol": "http",
+							"path": [
+								"localhost:3000",
+								"api",
+								"auth",
+								"validate-token"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Set New Password With Token",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"password\": \"password\",\r\n    \"password_confirmation\": \"password\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http:///localhost:3000/api/auth/update-password/597221",
+							"protocol": "http",
+							"path": [
+								"localhost:3000",
+								"api",
+								"auth",
+								"update-password",
+								"597221"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Authenticated User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3ODY3YjdlMmJjOWJhMzgxZGFlNDI1ZSIsImlhdCI6MTczNjg2NjkxMCwiZXhwIjoxNzUyNDE4OTEwfQ.OMiIm5Wyj2nmxYjxAK9baERMct8eri3IqHytZVJkPdE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http:///localhost:3000/api/auth/user",
+							"protocol": "http",
+							"path": [
+								"localhost:3000",
+								"api",
+								"auth",
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Check Password",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http:///localhost:3000/api/auth/check-password",
+							"protocol": "http",
+							"path": [
+								"localhost:3000",
+								"api",
+								"auth",
+								"check-password"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Team",
+			"item": [
+				{
+					"name": "Find Member By Email",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3ODY3YjdlMmJjOWJhMzgxZGFlNDI1ZSIsImlhdCI6MTczNjg2NjkxMCwiZXhwIjoxNzUyNDE4OTEwfQ.OMiIm5Wyj2nmxYjxAK9baERMct8eri3IqHytZVJkPdE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"email@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http:///localhost:3000/api/projects/6787f720ed9552143bf8afdf/team/find",
+							"protocol": "http",
+							"path": [
+								"localhost:3000",
+								"api",
+								"projects",
+								"6787f720ed9552143bf8afdf",
+								"team",
+								"find"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Member By Id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3ODY3YjdlMmJjOWJhMzgxZGFlNDI1ZSIsImlhdCI6MTczNjg2NjkxMCwiZXhwIjoxNzUyNDE4OTEwfQ.OMiIm5Wyj2nmxYjxAK9baERMct8eri3IqHytZVJkPdE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"67867b7e2bc9ba381dae425e\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http:///localhost:3000/api/projects/6787f720ed9552143bf8afdf/team",
+							"protocol": "http",
+							"path": [
+								"localhost:3000",
+								"api",
+								"projects",
+								"6787f720ed9552143bf8afdf",
+								"team"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove Member By Id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3ODY3YjdlMmJjOWJhMzgxZGFlNDI1ZSIsImlhdCI6MTczNjg2NjkxMCwiZXhwIjoxNzUyNDE4OTEwfQ.OMiIm5Wyj2nmxYjxAK9baERMct8eri3IqHytZVJkPdE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http:///localhost:3000/api/projects/678a581393fa83e5ad05d779/team/67867b7e2bc9ba381dae425e",
+							"protocol": "http",
+							"path": [
+								"localhost:3000",
+								"api",
+								"projects",
+								"678a581393fa83e5ad05d779",
+								"team",
+								"67867b7e2bc9ba381dae425e"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Project Team",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3ODY3YjdlMmJjOWJhMzgxZGFlNDI1ZSIsImlhdCI6MTczNjg2NjkxMCwiZXhwIjoxNzUyNDE4OTEwfQ.OMiIm5Wyj2nmxYjxAK9baERMct8eri3IqHytZVJkPdE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http:///localhost:3000/api/projects/6787f720ed9552143bf8afdf/team",
+							"protocol": "http",
+							"path": [
+								"localhost:3000",
+								"api",
+								"projects",
+								"6787f720ed9552143bf8afdf",
+								"team"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Note",
+			"item": [
+				{
+					"name": "Create Note",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3ODY3YjdlMmJjOWJhMzgxZGFlNDI1ZSIsImlhdCI6MTczNjg2NjkxMCwiZXhwIjoxNzUyNDE4OTEwfQ.OMiIm5Wyj2nmxYjxAK9baERMct8eri3IqHytZVJkPdE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"content\": \"Ready, can review\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/projects/678a6c4793fa83e5ad05d845/tasks/678e577b9a61c727274b27a9/notes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"projects",
+								"678a6c4793fa83e5ad05d845",
+								"tasks",
+								"678e577b9a61c727274b27a9",
+								"notes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Task Notes",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3ODY3YjdlMmJjOWJhMzgxZGFlNDI1ZSIsImlhdCI6MTczNzQ3MDk2NSwiZXhwIjoxNzUzMDIyOTY1fQ.dKnO7sOKzdcV3noqkmEIMG9CRHLaXk4Lmvq7Vdb5vjE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/projects/678a6c4793fa83e5ad05d845/tasks/678e577b9a61c727274b27a9/notes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"projects",
+								"678a6c4793fa83e5ad05d845",
+								"tasks",
+								"678e577b9a61c727274b27a9",
+								"notes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Note",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3N2ZkNzc3MzA3ZDkwY2RmZTc3MjhiNCIsImlhdCI6MTczNzQ3NDg5MSwiZXhwIjoxNzUzMDI2ODkxfQ.Yolnfxn4mNsL9T9nq3MuWu5nOITdfSBxusuJF9W-Md0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/projects/678a6c4793fa83e5ad05d845/tasks/678e577b9a61c727274b27a9/notes/678fb6babe630ac2b2138972",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"projects",
+								"678a6c4793fa83e5ad05d845",
+								"tasks",
+								"678e577b9a61c727274b27a9",
+								"notes",
+								"678fb6babe630ac2b2138972"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Profile",
+			"item": [
+				{
+					"name": "Update Profile",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3ODY3YjdlMmJjOWJhMzgxZGFlNDI1ZSIsImlhdCI6MTczNzYzOTQwOSwiZXhwIjoxNzUzMTkxNDA5fQ.pbPPhk3ZH66U5edGkZs9nUl4VKrAfBaR9UW4MpwXf2w",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Juan OK\",\r\n    \"email\": \"email@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http:///localhost:3000/api/auth/profile",
+							"protocol": "http",
+							"path": [
+								"localhost:3000",
+								"api",
+								"auth",
+								"profile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Password",
+					"request": {
+						"method": "POST",
+						"header": []
+					},
+					"response": []
+				}
+			],
+			"description": "This updates the user profile"
+		}
+	]
+}
