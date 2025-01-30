@@ -1,7 +1,7 @@
 # REST API Backend with MERN and Typescript
 ## Description
 This REST API has as objective to build endpoinds what allow us interact with a [mongoDB](https://www.mongodb.com/) database through the [web application]((https://github.com/LeopoldoAl/uptask_user_managet)) based on [React](https://react.dev/) framework.
-How the name indicates, this REST API was built using both MERN ([MongoDB](https://www.mongodb.com/), [Express](https://expressjs.com/), [React](https://react.dev/) and [Node.js](https://nodejs.org/en)) and Typescript, this builds endpoints in order to work with another [frontend-application-web](https://github.com/LeopoldoAl/uptask_user_managet). Through the endpoinds, we work for managing queries to mongoDB database in order to create operations such as:
+How the name indicates, this REST API was built using both MERN ([MongoDB](https://www.mongodb.com/), [Express](https://expressjs.com/), [React](https://react.dev/) and [Node.js](https://nodejs.org/en)) and [Typescript](https://www.npmjs.com/package/typescript), this builds endpoints in order to work with another [frontend-application-web](https://github.com/LeopoldoAl/uptask_user_managet). Through the endpoinds, we work for managing queries to mongoDB database in order to create operations such as:
 * Create a project
 * Edit a project
 * Delete a project and the tasks inside it
@@ -18,6 +18,7 @@ How the name indicates, this REST API was built using both MERN ([MongoDB](https
 * Check the user authorization to do any actions
 * Add a new collaborator to a project
 * Create notes inside the tasks
+
 There is some things what are done in the backend and we don't go to mention them, because of not extend this brief description.
 
 For creating backend REST API we used libraries such as the following:
